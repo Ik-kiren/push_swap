@@ -78,15 +78,62 @@ void do_cheapest(t_pile **pile_a, t_pile **pile_b)
     do_move(pile_a, pile_b, cost_a, cost_b);
 }
 
+int get_lowest_index(t_pile **pile)
+{
+    t_pile *tmp;
+    int lowest_index;
+    int lowest_pos;
+
+    tmp = *pile;
+    get_position(pile);
+    lowest_pos = tmp->position;
+    while (tmp)
+    {
+        if (tmp->index < lowest_index)
+        {
+            lowest_index = tmp->index;
+            lowest_pos = tmp->position;
+        }
+        tmp = tmp->next;
+    }
+    return (lowest_pos);
+}
+
+void shift_stack(t_pile **pile)
+{
+    int lowest_pos;
+    int size;
+
+    size = get_pile_size(*pile);
+    lowest_pos = get_lowest_index(pile);
+    if(lowest_pos > size / 2)
+    {
+        while (lowest_pos < size)
+        {
+            rrotate(pile);
+            lowest_pos++;
+        }
+    }
+    else
+    {
+        while (lowest_pos > 0)
+        {
+            rotate(pile);
+            lowest_pos--;
+        }
+    }
+}
+
 void big_sort(t_pile **pile_a, t_pile **pile_b, int size)
 {
     push_b(pile_a, pile_b, size);
     three_sort(pile_a);
-    //while (*pile_b)
-    //{
+    while (*pile_b)
+    {
         get_target_position(pile_a, pile_b);
         get_cost(pile_a, pile_b);
         do_cheapest(pile_a, pile_b);
-    //}
-    
+    }
+    if (!is_sorted(*pile_a))
+        shift_stack(pile_a);
 }

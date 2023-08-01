@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	sort(&pile_a, &pile_b, size);
     print_pile(pile_a);
     printf("\n");
-    print_pile(pile_b);
-    printf("\n");
+    //print_pile(pile_b);
+    //("\n");
     return 0;
 }

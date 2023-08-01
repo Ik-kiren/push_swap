@@ -25,16 +25,18 @@ void	swap(t_pile **pile);
 
 // pile.c
 void	print_pile(t_pile *pile);
-int get_pile_size(t_pile *pile)
+int get_pile_size(t_pile *pile);
 t_pile	*get_pile_bottom(t_pile *pile);
 t_pile	*get_pile_bbottom(t_pile *pile);
 void	add_bottom_pile(t_pile *pile_a, t_pile *new);
 t_pile	*init_pile(int nbr);
 t_pile	*fill_pile(int argc, char **argv);
+int		is_sorted(t_pile *pile);
 void sort(t_pile **pile_a, t_pile **pile_b, int size);
 void three_sort(t_pile **pile);
 void big_sort(t_pile **pile_a, t_pile **pile_b, int size);
 void get_target_position(t_pile **pile_a, t_pile **pile_b);
+void get_position(t_pile **pile);
 void do_move(t_pile **pile_a, t_pile **pile_b, int cost_a, int cost_b);
 
 #endif
