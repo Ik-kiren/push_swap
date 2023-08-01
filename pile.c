@@ -8,7 +8,9 @@ void print_pile(t_pile *pile)
     while (pile)
     {
         printf("%d ", pile->nbr);
-        printf("%d\n", pile->index);
+        printf("%d ", pile->index);
+        printf("%d ", pile->position);
+        printf("%d\n", pile->target_pos);
         pile = pile->next;
         i++;
     }

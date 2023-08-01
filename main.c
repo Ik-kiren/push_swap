@@ -30,10 +30,24 @@ void	assign_index(t_pile *stack_a, int stack_size)
 	}
 }
 
+int get_pile_size(t_pile *pile)
+{
+	int size;
+
+	size = 0;
+	while (pile)
+	{
+		size++;
+		pile = pile->next;
+	}
+	return(size);
+}
+
 int main(int argc, char **argv)
 {
     t_pile *pile_a;
     t_pile *pile_b;
+	int size;
 
     if (argc == 1)
     {
@@ -41,8 +55,10 @@ int main(int argc, char **argv)
         return 0;
     }
     pile_a = fill_pile(argc, argv);
-    pile_b = init_pile(9);
-    assign_index(pile_a, 5);
+    pile_b = NULL;
+	size = get_pile_size(pile_a);
+    assign_index(pile_a, size);
+	sort(&pile_a, &pile_b, size);
     print_pile(pile_a);
     printf("\n");
     print_pile(pile_b);
