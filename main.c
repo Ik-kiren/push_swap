@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 17:51:44 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/06 18:31:30 by cdupuis          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include "limits.h"
 
@@ -42,85 +54,6 @@ int	get_pile_size(t_pile *pile)
 	return (size);
 }
 
-long int	ft_atoi(const char *str)
-{
-	long int	res;
-	long int	i;
-	long int	n;
-
-	res = 0;
-	i = 0;
-	n = 1;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\f'
-		|| str[i] == '\t' || str[i] == '\v' || str[i] == '\r')
-	{
-		i++;
-	}
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			n = n * -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (res * n);
-}
-
-int	verif_doublon(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		if (ft_atoi(argv[i]) > INT_MAX || ft_atoi(argv[i]) < INT_MIN)
-			return (0);
-		j = i + 1;
-		while (argv[j])
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	verif_nbr(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if ((argv[i][j] < 48 || argv[i][j] > 57) && argv[i][j] != 45)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-int	verifs(char **argv)
-{
-	if (verif_nbr(argv) == 0)
-		return (0);
-	if (verif_doublon(argv) == 0)
-		return (0);
-	return (1);
-}
-
 void	free_pile(t_pile **pile)
 {
 	t_pile	*tmp;
@@ -142,7 +75,7 @@ int	main(int argc, char **argv)
 
 	if (verifs(argv) == 0)
 	{
-		printf("error\n");
+		ft_printf("error\n");
 		return (0);
 	}
 	if (argc == 1)
@@ -152,7 +85,6 @@ int	main(int argc, char **argv)
 	size = get_pile_size(pile_a);
 	assign_index(pile_a, size);
 	sort(&pile_a, &pile_b, size);
-	print_pile(pile_a);
 	free_pile(&pile_a);
 	free_pile(&pile_b);
 	return (0);

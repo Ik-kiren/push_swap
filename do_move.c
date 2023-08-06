@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do_move.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 17:51:40 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/06 17:52:41 by cdupuis          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rrotate_both(t_pile **pile_a, t_pile **pile_b, int *cost_a, int *cost_b)
@@ -37,7 +49,7 @@ void	rotate_pile_a(t_pile **pile_a, int *cost)
 	}
 }
 
-void rotate_pile_b(t_pile **pile_b, int *cost)
+void	rotate_pile_b(t_pile **pile_b, int *cost)
 {
 	while (*cost)
 	{

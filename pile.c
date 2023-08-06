@@ -1,20 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pile.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 17:51:50 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/06 18:19:45 by cdupuis          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void	print_pile(t_pile *pile)
-{
-	int	i;
-
-	i = 0;
-	while (pile)
-	{
-		printf("%d ", pile->nbr);
-		printf("%d ", pile->index);
-		printf("%d ", pile->position);
-		printf("%d\n", pile->target_pos);
-		pile = pile->next;
-		i++;
-	}
-}
 
 t_pile	*get_pile_bottom(t_pile *pile)
 {

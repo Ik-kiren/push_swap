@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   big_sort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 17:51:32 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/06 18:20:49 by cdupuis          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_b(t_pile **pile_a, t_pile **pile_b, int size)
@@ -48,19 +60,12 @@ void	get_cost(t_pile **pile_a, t_pile **pile_b)
 	}
 }
 
-int	nb_abs(int nb)
-{
-	if (nb < 0)
-		return (nb * -1);
-	return (nb);
-}
-
 void	do_cheapest(t_pile **pile_a, t_pile **pile_b)
 {
 	t_pile	*tmp;
-	int	cheapest;
-	int	cost_a;
-	int	cost_b;
+	int		cheapest;
+	int		cost_a;
+	int		cost_b;
 
 	tmp = *pile_b;
 	cheapest = INT_MAX;
@@ -97,32 +102,6 @@ int	get_lowest_index(t_pile **pile)
 		tmp = tmp->next;
 	}
 	return (lowest_pos);
-}
-
-void	shift_stack(t_pile **pile)
-{
-	int	lowest_pos;
-	int	size;
-
-	size = get_pile_size(*pile);
-	lowest_pos = get_lowest_index(pile);
-	if (lowest_pos > size / 2)
-	{
-		while (lowest_pos < size)
-		{
-			rra(pile);
-			lowest_pos++;
-		}
-	}
-	else
-	{
-		while (lowest_pos > 0)
-		{
-			printf("tt\n");
-			ra(pile);
-			lowest_pos--;
-		}
-	}
 }
 
 void	big_sort(t_pile **pile_a, t_pile **pile_b, int size)

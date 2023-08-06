@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/06 17:52:11 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/06 18:09:15 by cdupuis          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	swap(t_pile **pile)
@@ -17,18 +29,18 @@ void	swap(t_pile **pile)
 void	sa(t_pile **pile_a)
 {
 	swap(pile_a);
-	printf("sa\n");
+	ft_printf("sa\n");
 }
 
 void	sb(t_pile **pile_b)
 {
 	swap(pile_b);
-	printf("sb\n");
+	ft_printf("sb\n");
 }
 
 void	ss(t_pile **pile_a, t_pile **pile_b)
 {
 	swap(pile_a);
 	swap(pile_b);
-	printf("ss\n");
+	ft_printf("ss\n");
 }
