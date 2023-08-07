@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:56 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/06 18:34:11 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 11:30:16 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void		rrr(t_pile **pile_a, t_pile **pile_b);
 // pile
 int			get_pile_size(t_pile *pile);
 t_pile		*get_pile_bottom(t_pile *pile);
-void		add_bottom_pile(t_pile *pile_a, t_pile *new);
+t_pile		*get_pile_bbottom(t_pile *pile);
+void		add_bottom_pile(t_pile **pile_a, t_pile *new);
 t_pile		*init_pile(int nbr);
 t_pile		*fill_pile(int argc, char **argv);
 int			is_sorted(t_pile *pile);

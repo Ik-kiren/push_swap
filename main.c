@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:44 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/06 18:31:30 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 11:19:34 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	free_pile(t_pile **pile)
 {
 	t_pile	*tmp;
 
+	if (!pile || !(*pile))
+		return ;
 	while (*pile)
 	{
 		tmp = (*pile)->next;
@@ -73,13 +75,13 @@ int	main(int argc, char **argv)
 	t_pile	*pile_b;
 	int		size;
 
-	if (verifs(argv) == 0)
-	{
-		ft_printf("error\n");
-		return (0);
-	}
 	if (argc == 1)
 		return (0);
+	if (verifs(argv) == 0)
+	{
+		write(2, "Error\n", 6);
+		return (0);
+	}
 	pile_a = fill_pile(argc, argv);
 	pile_b = NULL;
 	size = get_pile_size(pile_a);
