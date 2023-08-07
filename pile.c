@@ -6,7 +6,7 @@
 /*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:50 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 11:29:13 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 15:25:35 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_pile	*fill_pile(int argc, char **argv)
 	int		i;
 
 	i = 1;
-	while (i < argc)
+	while (argv[i])
 	{
 		if (i == 1)
 			pile_a = init_pile(ft_atoi(argv[i]));

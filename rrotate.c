@@ -6,7 +6,7 @@
 /*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:52:06 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 11:29:52 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 14:30:07 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	rrr(t_pile **pile_a, t_pile **pile_b)
 {
 	rrotate(pile_a);
 	rrotate(pile_b);
-	ft_printf("rra\n");
+	ft_printf("rrr\n");
 }

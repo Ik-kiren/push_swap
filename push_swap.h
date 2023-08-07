@@ -6,7 +6,7 @@
 /*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:56 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 11:30:16 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 14:43:11 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void		get_position(t_pile **pile);
 int			get_lowest_index(t_pile **pile);
 void		do_move(t_pile **pile_a, t_pile **pile_b, int cost_a, int cost_b);
 int			verifs(char **argv);
+char		**ft_split(char const *s, char c);
 
 //utils
 void		print_pile(t_pile *pile);

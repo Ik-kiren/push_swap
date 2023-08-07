@@ -6,12 +6,11 @@
 /*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:44 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 11:19:34 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 15:26:22 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "limits.h"
 
 void	assign_index(t_pile *stack_a, int stack_size)
 {
@@ -74,7 +73,10 @@ int	main(int argc, char **argv)
 	t_pile	*pile_a;
 	t_pile	*pile_b;
 	int		size;
+	char	**tab;
 
+	if (argc == 2)
+		argv = ft_split(argv[1], ' ');
 	if (argc == 1)
 		return (0);
 	if (verifs(argv) == 0)
