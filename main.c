@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:44 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 15:26:22 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/12 10:50:31 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	main(int argc, char **argv)
 	t_pile	*pile_a;
 	t_pile	*pile_b;
 	int		size;
-	char	**tab;
 
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -84,7 +83,7 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	pile_a = fill_pile(argc, argv);
+	pile_a = fill_pile(argv);
 	pile_b = NULL;
 	size = get_pile_size(pile_a);
 	assign_index(pile_a, size);
