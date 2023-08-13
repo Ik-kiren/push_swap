@@ -6,7 +6,7 @@
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:56 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/12 10:50:46 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/13 16:04:18 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int			get_lowest_index(t_pile **pile);
 void		do_move(t_pile **pile_a, t_pile **pile_b, int cost_a, int cost_b);
 int			verifs(char **argv);
 char		**ft_split(char const *s, char c);
+void		freesplit(char **tab);
 
 //utils
 void		print_pile(t_pile *pile);
