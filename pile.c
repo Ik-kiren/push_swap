@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pile.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:50 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/13 15:58:39 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/07 15:25:35 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_pile	*init_pile(int nbr)
 	return (new);
 }
 
-t_pile	*fill_pile(char **argv)
+t_pile	*fill_pile(int argc, char **argv)
 {
 	t_pile	*pile_a;
 	int		i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verifs.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
+/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 18:16:10 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/06 18:19:19 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/14 14:04:54 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int	verif_nbr(char **argv)
 		while (argv[i][j])
 		{
 			if ((argv[i][j] < 48 || argv[i][j] > 57) && argv[i][j] != 45)
+				return (0);
+			if ((argv[i][j] == '-' && j > 0) || (argv[i][j] == '-' && j == 0 &&
+				argv[i][j + 1] == '\0'))
 				return (0);
 			j++;
 		}

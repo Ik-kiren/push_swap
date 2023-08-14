@@ -1,24 +1,22 @@
-CC = gcc -Werror -Wall -Wextra
+CC = gcc
+CFlags = -Werror -Wall -Wextra
 NAME = push_swap
 SRCS = main.c big_sort.c do_move.c pile.c push.c rotate.c rrotate.c sort.c swap.c target_position.c utils.c verifs.c ft_split.c
 OBJS = $(SRCS:c=o)
-PRINT = ft_printf/libftprintf.a
 
 all : $(NAME)
 
-$(PRINT): 
+$(NAME): $(OBJS)
 	make -C ft_printf
-
-$(NAME): $(OBJS) $(PRINT)
-	$(CC) $(OBJS) $(PRINT) -o $(NAME)
+	$(CC) $(CFlags) $(OBJS) ft_printf/libftprintf.a -o $(NAME)
 
 clean:
-	rm -f *.o
+	rm $(NAME)
 
 fclean: clean
 	make fclean -C ft_printf
-	rm -f $(NAME)
+	rm *.o
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all clean fclean re
