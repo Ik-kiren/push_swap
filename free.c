@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 17:52:11 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/15 19:22:16 by cdupuis          ###   ########.fr       */
+/*   Created: 2023/08/15 17:35:28 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/15 17:36:03 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_pile **pile)
+void	free_pile(t_pile **pile)
 {
 	t_pile	*tmp;
-	t_pile	*tmp2;
-	t_pile	*second;
 
-	if (get_pile_size(*pile) <= 1)
+	if (!pile || !(*pile))
 		return ;
-	second = (*pile)->next;
-	tmp = *pile;
-	tmp2 = second->next;
-	*pile = second;
-	second->next = tmp;
-	(*pile)->next->next = tmp2;
+	while (*pile)
+	{
+		tmp = (*pile)->next;
+		free(*pile);
+		*pile = tmp;
+	}
+	*pile = NULL;
 }
 
-void	sa(t_pile **pile_a)
+void	free_tab(char **tab)
 {
-	swap(pile_a);
-	ft_printf("sa\n");
-}
+	int	i;
 
-void	sb(t_pile **pile_b)
-{
-	swap(pile_b);
-	ft_printf("sb\n");
-}
-
-void	ss(t_pile **pile_a, t_pile **pile_b)
-{
-	swap(pile_a);
-	swap(pile_b);
-	ft_printf("ss\n");
+	i = 1;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
 }

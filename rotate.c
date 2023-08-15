@@ -6,7 +6,7 @@
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:52:03 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/06 18:08:57 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:08:24 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rotate(t_pile **pile)
 	t_pile	*tmp;
 	t_pile	*last;
 
+	if (get_pile_size(*pile) <= 1)
+		return ;
 	last = get_pile_bottom(*pile);
 	tmp = *pile;
 	*pile = (*pile)->next;

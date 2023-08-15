@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:44 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/14 13:53:31 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:17:19 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,32 +40,29 @@ void	assign_index(t_pile *stack_a, int stack_size)
 	}
 }
 
-int	get_pile_size(t_pile *pile)
+void	shift_stack(t_pile **pile)
 {
+	int	lowest_pos;
 	int	size;
 
-	size = 0;
-	while (pile)
+	size = get_pile_size(*pile);
+	lowest_pos = get_lowest_index(pile);
+	if (lowest_pos > size / 2)
 	{
-		size++;
-		pile = pile->next;
+		while (lowest_pos < size)
+		{
+			rra(pile);
+			lowest_pos++;
+		}
 	}
-	return (size);
-}
-
-void	free_pile(t_pile **pile)
-{
-	t_pile	*tmp;
-
-	if (!pile || !(*pile))
-		return ;
-	while (*pile)
+	else
 	{
-		tmp = (*pile)->next;
-		free(*pile);
-		*pile = tmp;
+		while (lowest_pos > 0)
+		{
+			ra(pile);
+			lowest_pos--;
+		}
 	}
-	*pile = NULL;
 }
 
 int	main(int argc, char **argv)
@@ -73,7 +70,6 @@ int	main(int argc, char **argv)
 	t_pile	*pile_a;
 	t_pile	*pile_b;
 	int		size;
-	char	**tab;
 
 	if (argc == 2)
 		argv = ft_split(argv[1], ' ');
@@ -81,11 +77,15 @@ int	main(int argc, char **argv)
 		return (0);
 	if (verifs(argv) == 0 || !argv[1])
 	{
+		if (argc == 2)
+			free_tab(argv);
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	pile_a = fill_pile(argc, argv);
+	pile_a = fill_pile(argv);
 	pile_b = NULL;
+	if (argc == 2)
+		free_tab(argv);
 	size = get_pile_size(pile_a);
 	assign_index(pile_a, size);
 	sort(&pile_a, &pile_b, size);

@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 17:52:01 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/15 19:21:58 by cdupuis          ###   ########.fr       */
+/*   Created: 2023/08/15 17:52:30 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/15 17:54:33 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	push(t_pile **src, t_pile **dest)
-{
-	t_pile	*tmp;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-void	pa(t_pile **pile_b, t_pile **pile_a)
-{
-	push(pile_b, pile_a);
-	ft_printf("pa\n");
-}
+char	*get_next_line(int fd);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strchr_gnl(const char *s, int c);
+size_t	ft_strlen_gnl(char const *str);
+char	*ft_strdup_gnl(char *source);
 
-void	pb(t_pile **pile_a, t_pile **pile_b)
-{
-	push(pile_a, pile_b);
-	ft_printf("pb\n");
-}
+#endif

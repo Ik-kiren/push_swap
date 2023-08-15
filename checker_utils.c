@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 17:52:01 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/15 19:21:58 by cdupuis          ###   ########.fr       */
+/*   Created: 2023/08/15 23:08:58 by cdupuis           #+#    #+#             */
+/*   Updated: 2023/08/15 23:12:54 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	push(t_pile **src, t_pile **dest)
+void	drr(t_pile **pile_a, t_pile **pile_b)
 {
-	t_pile	*tmp;
-
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
-	*src = tmp;
+	rotate(pile_a);
+	rotate(pile_b);
 }
 
-void	pa(t_pile **pile_b, t_pile **pile_a)
+void	drrr(t_pile **pile_a, t_pile **pile_b)
 {
-	push(pile_b, pile_a);
-	ft_printf("pa\n");
+	rrotate(pile_a);
+	rrotate(pile_b);
 }
 
-void	pb(t_pile **pile_a, t_pile **pile_b)
+void	dss(t_pile **pile_a, t_pile **pile_b)
 {
-	push(pile_a, pile_b);
-	ft_printf("pb\n");
+	swap(pile_a);
+	swap(pile_b);
 }

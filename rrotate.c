@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrotate.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:52:06 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/07 14:30:07 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:21:21 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	rrotate(t_pile **pile)
 	t_pile	*tmp;
 	t_pile	*before;
 
+	if (get_pile_size(*pile) <= 1)
+		return ;
 	last = get_pile_bottom(*pile);
 	before = get_pile_bbottom(*pile);
 	tmp = *pile;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdupuis <cdupuis@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:51:56 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/14 14:25:16 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:38:11 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_pile		*get_pile_bottom(t_pile *pile);
 t_pile		*get_pile_bbottom(t_pile *pile);
 void		add_bottom_pile(t_pile **pile_a, t_pile *new);
 t_pile		*init_pile(int nbr);
-t_pile		*fill_pile(int argc, char **argv);
+t_pile		*fill_pile(char **argv);
 int			is_sorted(t_pile *pile);
 void		sort(t_pile **pile_a, t_pile **pile_b, int size);
 void		three_sort(t_pile **pile);
@@ -60,6 +60,9 @@ int			get_lowest_index(t_pile **pile);
 void		do_move(t_pile **pile_a, t_pile **pile_b, int cost_a, int cost_b);
 int			verifs(char **argv);
 char		**ft_split(char const *s, char c);
+void		free_tab(char **tab);
+void		free_pile(t_pile **pile);
+void		ft_error(char **tab, int argc);
 
 //utils
 void		print_pile(t_pile *pile);

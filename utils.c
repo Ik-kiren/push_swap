@@ -6,7 +6,7 @@
 /*   By: cdupuis <chris_dupuis@outlook.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 17:58:01 by cdupuis           #+#    #+#             */
-/*   Updated: 2023/08/06 18:31:10 by cdupuis          ###   ########.fr       */
+/*   Updated: 2023/08/15 19:39:14 by cdupuis          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,27 +60,23 @@ void	print_pile(t_pile *pile)
 	}
 }
 
-void	shift_stack(t_pile **pile)
+int	get_pile_size(t_pile *pile)
 {
-	int	lowest_pos;
 	int	size;
 
-	size = get_pile_size(*pile);
-	lowest_pos = get_lowest_index(pile);
-	if (lowest_pos > size / 2)
+	size = 0;
+	while (pile)
 	{
-		while (lowest_pos < size)
-		{
-			rra(pile);
-			lowest_pos++;
-		}
+		size++;
+		pile = pile->next;
 	}
-	else
-	{
-		while (lowest_pos > 0)
-		{
-			ra(pile);
-			lowest_pos--;
-		}
-	}
+	return (size);
+}
+
+void	ft_error(char **tab, int argc)
+{
+	if (tab != NULL && argc == 2)
+		free_tab(tab);
+	write(2, "Error\n", 6);
+	exit (0);
 }
